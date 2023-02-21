@@ -1,6 +1,9 @@
 namespace lab5_bignum;
 using lab5_bignum;
 
+
+
+
 public class BigInteger
 {
 
@@ -123,6 +126,10 @@ public class BigInteger
         var nx = x.Digits.Count;
         var ny = y.Digits.Count;
         
+        // n = max(nx, ny)
+        
+        var n = Math.Max(nx, ny);
+        
         if (nx > ny)
         {
             Console.WriteLine("nx is bigger than ny");
@@ -141,32 +148,26 @@ public class BigInteger
 
         // Divide x into two halves a and b, and y into two halves c and d
 
-        var a = x.Digits.GetRange(0, nx/2);
-        var b = x.Digits.GetRange(nx/2, nx/2);
-        var c = y.Digits.GetRange(0, ny/2);
-        var d = y.Digits.GetRange(ny/2, ny/2);
+        BigInteger a = new BigInteger(string.Join("", x.Digits.GetRange(0, nx / 2)));
+        BigInteger b = new BigInteger(string.Join("", x.Digits.GetRange(nx / 2, nx / 2)));
+        BigInteger c = new BigInteger(string.Join("", y.Digits.GetRange(0, ny / 2)));
+        BigInteger d = new BigInteger(string.Join("", y.Digits.GetRange(ny / 2, ny / 2)));
         
-        Console.WriteLine("a: " + string.Join("", a));
-        Console.WriteLine("b: " + string.Join("", b));
-        Console.WriteLine("c: " + string.Join("", c));
-        Console.WriteLine("d: " + string.Join("", d));
+        Console.WriteLine("a: " + a);
+        Console.WriteLine("b: " + b);
+        Console.WriteLine("c: " + c);
+        Console.WriteLine("d: " + d);
 
-        // ac recursively calls Karatsuba to compute ac
-        
-        var ac = Karatsuba(new BigInteger(string.Join("", a)), new BigInteger(string.Join("", c)));
+        BigInteger ac = Karatsuba(a, c);
+        BigInteger bd = Karatsuba(b, d);
 
-        var bd = Karatsuba(new BigInteger(string.Join("", b)), new BigInteger(string.Join("", d)));
+        BigInteger abcd = Karatsuba(Add(a, b), Add(c, d));
+        BigInteger ad_plus_bc = Sub(Sub(abcd, ac), bd);
         
-        // ad_plus_bc recursively calls Karatsuba(a+b, c+d) - ac - bd
-        
-        
-        
-        
-        
-        Console.WriteLine(ac);
 
-        return null;
+        // return
     }
+    
     
 
 }
