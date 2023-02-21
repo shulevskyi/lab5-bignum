@@ -29,47 +29,36 @@ namespace lab5_bignum
         public static BigInteger Add(BigInteger a, BigInteger b)
         {
             var result = new List<int>();
+            int carry = 0;
 
-            // Get the last index of a and b
-            int aLastIndex = a.Digits.Count - 1;
-            int bLastIndex = b.Digits.Count - 1;
+            int i = a.Digits.Count - 1;
+            int j = b.Digits.Count - 1;
 
-            // While there are still digits to add
-            while (aLastIndex >= 0 || bLastIndex >= 0)
+            while (i >= 0 || j >= 0 || carry > 0)
             {
-                int aDigit = 0;
-                int bDigit = 0;
+                int sum = carry;
 
-                if (aLastIndex >= 0)
+                if (i >= 0)
                 {
-                    aDigit = a.Digits[aLastIndex];
+                    sum += a.Digits[i];
+                    i--;
                 }
 
-                if (bLastIndex >= 0)
+                if (j >= 0)
                 {
-                    bDigit = b.Digits[bLastIndex];
+                    sum += b.Digits[j];
+                    j--;
                 }
 
-                int sum = aDigit + bDigit;
+                int digit = sum % 10;
+                carry = sum / 10;
 
-                if (sum > 9)
-                {
-                    result.Add(sum - 10);
-                    result.Add(1);
-                }
-                else
-                {
-                    result.Add(sum);
-                }
-
-                aLastIndex--;
-                bLastIndex--;
+                result.Insert(0, digit);
             }
 
-            result.Reverse();
-            //Console.WriteLine(string.Join("", result));
             return new BigInteger(string.Join("", result));
         }
+
 
         public static BigInteger Sub(BigInteger a, BigInteger b)
         {
@@ -79,7 +68,7 @@ namespace lab5_bignum
             int aLastIndex = a.Digits.Count - 1;
             int bLastIndex = b.Digits.Count - 1;
 
-            // While there are still digits to add
+            // While there are still digits to subtract
             while (aLastIndex >= 0 || bLastIndex >= 0)
             {
                 int aDigit = 0;
@@ -99,7 +88,7 @@ namespace lab5_bignum
 
                 if (diff < 0)
                 {
-                    result.Add(diff + 10);
+                    int borrow = 1;
                     int nextIndex = aLastIndex - 1;
                     while (nextIndex >= 0 && a.Digits[nextIndex] == 0)
                     {
@@ -111,14 +100,24 @@ namespace lab5_bignum
                     {
                         a.Digits[nextIndex]--;
                     }
+                    else
+                    {
+                        borrow = -1;
+                    }
+
+                    diff = (aDigit + 10 * borrow) - bDigit;
                 }
-                else
-                {
-                    result.Add(diff);
-                }
+
+                result.Add(diff);
 
                 aLastIndex--;
                 bLastIndex--;
+            }
+
+            // Remove any leading zeros from the result
+            while (result.Count > 1 && result[result.Count - 1] == 0)
+            {
+                result.RemoveAt(result.Count - 1);
             }
 
             result.Reverse();
@@ -126,7 +125,10 @@ namespace lab5_bignum
             return new BigInteger(string.Join("", result));
         }
 
+
         // Karatsuba multiplication
+        
+
     }
 }
 

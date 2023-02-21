@@ -1,11 +1,19 @@
-﻿using lab5_bignum;
+﻿using System;
 
-var x = new BigInteger("123456789012345678901234567890").Digits;
-
-// Call the Add function
-var result = BigInteger.Sub(new BigInteger("430534"), new BigInteger("344"));
-
-foreach (var digit in result.Digits)
+namespace lab5_bignum
 {
-    Console.Write(digit);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            BigInteger a = new BigInteger("550");
+            BigInteger b = new BigInteger("550");
+
+            BigInteger sum = BigInteger.Add(a, b);
+            BigInteger diff = BigInteger.Sub(a, b);
+
+            Console.WriteLine($"a + b = {string.Join("", sum.Digits)}");
+            Console.WriteLine($"a - b = {string.Join("", diff.Digits)}");
+        }
+    }
 }
