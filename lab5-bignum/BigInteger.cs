@@ -3,40 +3,23 @@ using lab5_bignum;
 
 public class BigInteger
 {
+    
+    public List<int> Digits { get; }
     public BigInteger(string value)
     {
-        var digits = StrToInt(value);
-        
-        foreach (var digit in digits)
-        {
-            Console.WriteLine(digit);
-        }
+        // Convert value to a list of digits through a Func 
+        Digits = StringToDigits(value);
     }
     
-    public static int[] StrToInt(string text)
+    // Function to convert a string to a list of digits
+    private static List<int> StringToDigits(string value)
     {
-        // Function Converter to an array of digits
-        
-        int[] digits = new int[text.Length];
-        for (int i = 0; i < text.Length; i++)
+        var digits = new List<int>();
+        foreach (var c in value)
         {
-            digits[i] = text[i] - '0';
+            digits.Add(c - '0');
         }
-        
         return digits;
     }
     
-    public BigInteger Add(BigInteger another)
-    {
-        // return new BigInteger, result of current + another
-        return null;
-    }
-    
-    public BigInteger Sub(BigInteger another)
-    {
-        // return new BigInteger, result of current - another
-        return null;
-    }
-    
-
 }
