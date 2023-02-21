@@ -10,3 +10,5 @@ var result = BigInteger.Sub(new BigInteger("123456789012345678901234567890"), ne
 Console.WriteLine(result);
 
 
+BigInteger.Karatsuba(new BigInteger("1234556789012345678901234567890"), new BigInteger("123456789012345678901234567890"));
+
