@@ -27,45 +27,46 @@ public class BigInteger
     public static BigInteger Add(BigInteger a, BigInteger b)
     {
         var result = new List<int>();
-        var carry = 0;
-
-        // both vars are the indexes of the last digit
-        var i = a.Digits.Count - 1;
-        var j = b.Digits.Count - 1;
-
-        // while there are still digits to add
-        while (i >= 0 || j >= 0)
+        
+        // Get the last index of a and b
+        int aLastIndex = a.Digits.Count - 1;
+        int bLastIndex = b.Digits.Count - 1;
+        
+        // While there are still digits to add
+        while (aLastIndex >= 0 || bLastIndex >= 0)
         {
-            var sum = carry;
-
-
-            if (i >= 0)
+            int aDigit = 0;
+            int bDigit = 0;
+            
+            if (aLastIndex >= 0)
             {
-                sum += a.Digits[i];
-                i--;
+                aDigit = a.Digits[aLastIndex];
             }
-
-            if (j >= 0)
+            
+            if (bLastIndex >= 0)
             {
-                sum += b.Digits[j];
-                j--;
+                bDigit = b.Digits[bLastIndex];
             }
-
-            result.Add(sum % 10);
-            carry = sum / 10;
+            
+            int sum = aDigit + bDigit;
+            
+            if (sum > 9)
+            {
+                result.Add(sum - 10);
+                result.Add(1);
+            }
+            else
+            {
+                result.Add(sum);
+            }
+            
+            aLastIndex--;
+            bLastIndex--;
         }
-
-        if (carry > 0)
-        {
-            result.Add(carry);
-        }
-
-        // reverse the list to get the correct order
+        
         result.Reverse();
         Console.WriteLine(string.Join("", result));
         return new BigInteger(string.Join("", result));
     }
-    
-    
 
 }
