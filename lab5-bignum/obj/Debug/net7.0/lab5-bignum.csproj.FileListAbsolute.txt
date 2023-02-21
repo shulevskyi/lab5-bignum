@@ -1,0 +1,15 @@
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/bin/Debug/net7.0/lab5-bignum
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/bin/Debug/net7.0/lab5-bignum.deps.json
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/bin/Debug/net7.0/lab5-bignum.runtimeconfig.json
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/bin/Debug/net7.0/lab5-bignum.dll
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/bin/Debug/net7.0/lab5-bignum.pdb
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/lab5-bignum.csproj.AssemblyReference.cache
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/lab5-bignum.GeneratedMSBuildEditorConfig.editorconfig
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/lab5-bignum.AssemblyInfoInputs.cache
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/lab5-bignum.AssemblyInfo.cs
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/lab5-bignum.csproj.CoreCompileInputs.cache
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/lab5-bignum.dll
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/refint/lab5-bignum.dll
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/lab5-bignum.pdb
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/lab5-bignum.genruntimeconfig.cache
+/Users/danielshulevskiy/RiderProjects/lab5-bignum/lab5-bignum/obj/Debug/net7.0/ref/lab5-bignum.dll
