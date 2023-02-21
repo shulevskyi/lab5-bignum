@@ -4,8 +4,7 @@ using lab5_bignum;
 
 var x = new BigInteger("123456789012345678901234567890").Digits;
 
-foreach (var d in x)
-{
-    Console.WriteLine(d);
-}
+// Call the Add function
+var result = BigInteger.Add(new BigInteger("123456789012345678901234567890"), new BigInteger("123456789012345678901234567890"));
+Console.WriteLine(result);
 
